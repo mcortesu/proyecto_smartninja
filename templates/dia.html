@@ -1,0 +1,40 @@
+{% extends "base_dia.html" %}
+
+
+{% block fecha %}
+    {{day + " " + text_month + " " + year}}
+{% endblock fecha %}
+
+{% block volver %}
+    <p class="header_copy"><a href={{url_for("calendario", month=month, year=year, action="current")}}> Volver al calendario</a></p>
+
+{% endblock volver %}
+
+{% block events  %}
+
+    <div class="calendar_events">
+        <p class="ce_title">Próximos eventos</p>
+        <div class="event_item">
+          <a href="#addDate" data-toggle="modal" data-target="#addDateModal">   <!--donde llama al modal-->
+            <div class="ei_Dot dot_active"></div>
+            <div class="ei_Title">10:30 am</div>
+            <div class="ei_Copy">Monday briefing with the team</div>
+          </a>
+        </div>
+        {% for cita in citas_dia %}
+            <div class="event_item">
+                <div class="ei_Dot"></div>
+                <div class="ei_Title">{{cita.fecha.hour}}:{{cita.fecha.minute}}</div>
+                <div class="ei_Copy">{{cita.titulo}}</div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+{% endblock events %}
+
+{% block ocultos %}
+    <input type="hidden" name="cita_year" value={{year}} />
+    <input type="hidden" name="cita_month" value={{month}} />
+    <input type="hidden" name="cita_day" value={{day}} />
+{% endblock ocultos %}

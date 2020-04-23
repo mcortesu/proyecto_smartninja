@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style_calendario.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Calendario</title>
+</head>
+<body>
+    <div class="wrapper">
+        <main>
+          <div class="toolbar">
+            <div class="toggle">
+              {% block navegar %}
+              {% endblock navegar %}
+            </div>
+            <div class="current-month">{% block year %} {% endblock year %}</div>
+            <div class="search-input">
+            </div>
+          </div>
+          <div class="calendar">
+            <div class="calendar__header">
+              <div>Lunes</div>
+              <div>Martes</div>
+              <div>Miércoles</div>
+              <div>Jueves</div>
+              <div>Viernes</div>
+              <div>Sábado</div>
+              <div>Domingo</div>
+            </div>
+
+            {% block content %}
+
+            {% endblock content %}
+
+          </div>
+        </main>
+        <sidebar>
+
+
+              {% block avatar %}
+              {% endblock avatar%}
+
+          <nav class="menu">
+              {% block menu %}
+              {% endblock menu %}
+          </nav>
+          <div class="copyright">copyright &copy; 2018</div>
+        </sidebar>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sobre nosotros</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <p>La peluquería de Smart Ninja está formada por un grupo de profesionales del más alto nivel centrado en el cuidado del cabello del cliente</p>
+                <p>Nuestra especialidad es el corte del cabello con katana, no haciéndonos responsables de cualquier decapitación que se pueda producir.</p>
+                <img width="" class="img-fluid" src="./imagenes/imagen4.jpg" alt="corte con katana"><!--La clase img-fuid hace que la imagen se mantenga dentro-->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+      </div>
+
+      <!--Enlazamos los scripts de Bootstrap-->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</body>
+</html>

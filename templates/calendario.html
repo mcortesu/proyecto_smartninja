@@ -1,0 +1,58 @@
+{% extends "base_calendario.html" %}
+
+
+{% block navegar %}
+    <div class="toggle__option"><a href= {{url_for("calendario", month=month, year=year, action="previous")}}>anterior</a></div>
+    <div class="toggle__option"><a href= {{url_for("calendario", month=month, year=year, action="next")}}>siguiente</a></div>
+{% endblock navegar %}
+
+
+
+
+{% block year %}
+
+    {{ text_month }} {{year}}
+{% endblock year %}
+
+
+{% block content %}
+    {% for dias in calendario_mes %}
+        <div class="calendar__week">
+            {% for dia in dias %}
+                {% if dia == 0 %}
+                    <div class="calendar__day2 day"></div>
+                {%elif dia in dias_cita%}
+                    <div class="calendar__day day">
+                        <a href="{{url_for('dia', month=month, year=year, day=dia)}}"><span class="badge-primary badge-pill">{{dia}}</span></a>
+                    </div>
+                {%else%}
+                    <div class="calendar__day day">
+                        <a href="{{url_for('dia', month=month, year=year, day=dia)}}">{{dia}}</a>
+                    </div>
+                {%endif%}
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+{% endblock content %}
+
+{% block avatar %}
+
+    <div class="avatar">
+        <div class="avatar__img">
+            <img src="{{url_imagen}}" alt="avatar">
+        </div>
+        <div class="avatar__name">{{username}}</div>
+    </div>
+
+{% endblock avatar%}
+
+
+{% block menu %}
+
+    <a class="menu__item menu__item--active" href="{{url_for('logout')}}">
+        <i class="menu__icon fa fa-calendar"></i>
+        <span class="menu__text">Logout</span>
+    </a>
+
+{% endblock menu %}

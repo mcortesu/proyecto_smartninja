@@ -1,0 +1,22 @@
+{% extends "base_users.html" %}
+
+{% block content %}
+
+<div class="login-page">
+  <div class="form">
+    <form class="register-form" method="POST" enctype="multipart/form-data" action="{{url_for('register')}}">
+      <input type="text" name="name" placeholder="name"/>
+      <input type="text" name="surname" placeholder="surname"/>
+      <input type="date" name="birthdate" placeholder="born date"/>
+      <input type="text" name="username" placeholder="username"/>
+      <input type="password" name="password" placeholder="password"/>
+      <input type="text" name="email" placeholder="email address"/>
+      <label for="img">Imagen de perfil:</label>
+      <input type="file" id="img" name="img_file" accept="image/*">
+      <button type="submit">Crear</button>
+      <p class="message">Already registered? <a href="{{url_for("login")}}">Sign In</a></p>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}
